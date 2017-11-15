@@ -1,5 +1,7 @@
 <?php
 
+// include cat => gets executed!
+// funny changes
 include 'cat.php';
 
 echo Cat::SOUND;
