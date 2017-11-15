@@ -1,6 +1,9 @@
 <?php
 
-$name = "murlibrumm";
+include 'cat.php';
+
+echo Cat::SOUND;
+
 var_dump($name);
 $name++;
 
