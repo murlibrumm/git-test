@@ -5,7 +5,7 @@ class Cat
 	private $name;
 
 	function makeSound() {
-		echo self::SOUND . "\n";
+		echo constant(get_class($this) . '::SOUND') . "\n"; // get constant depending on type of $this
 	}
 
 	function __construct($name) {
@@ -24,7 +24,26 @@ $myCat->makeSound();
 echo($myCat->getName());
 
 
+class CrazyCat extends Cat {
+	const SOUND = 'MOOOOOOOOOOOOOOOOOOOH!';
+	private $crazyness;
 
+	function __construct($name, $crazyness) {
+		parent::__construct($name);
+		$this->crazyness = $crazyness;
+	}
 
+	function willSheTryToKillMeInMySleep() {
+		return ($this->crazyness > 100);
+	}
+
+	function adviceForHumans() {
+		echo ($this->willSheTryToKillMeInMySleep()) ? "run you fooool!" : "chill bro, da kitteh is cool!";
+	}
+}
+
+$myCrazyCat = new CrazyCat("Mini", 50);
+$myCrazyCat->makeSound();
+$myCrazyCat->adviceForHumans();
 
 ?>
