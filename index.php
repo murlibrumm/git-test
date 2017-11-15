@@ -6,13 +6,17 @@ include 'cat.php';
 
 echo Cat::SOUND;
 
+$name = "catLover";
 var_dump($name);
+echo '<pre>' . var_export($name, true) . '</pre>';
 $name++;
 
 $name = null;
 //$name->toString(); // to produce errors in php_error.log
 
 var_dump($name);
+
+echo '<pre>' . var_export($name, true) . '</pre>';
 
 print_r (phpinfo());
 
